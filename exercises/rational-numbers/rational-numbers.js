@@ -56,6 +56,12 @@ function abs(r) {
 
 function pow(r, x) {
   if (x % 1 === 0) {
+    if (x < 0) {
+      return reduce({
+        num: Math.pow(r.den, Math.abs(x)),
+        den: Math.pow(r.num, Math.abs(x))
+      });
+    }
     return reduce({
       num: Math.pow(r.num, x),
       den: Math.pow(r.den, x)
